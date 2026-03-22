@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📃</text></svg>">
+<title>CV – Théo MAURIN</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #111111;
+    --white: #ffffff;
+    --light: #f5f4f0;
+    --border: #cccccc;
+    --page-w: 210mm;
+    --page-h: 297mm;
+  }
+
+  html, body {
+    width: var(--page-w);
+    background: #e0ddd8;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9pt;
+    color: var(--black);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: var(--page-w);
+    height: var(--page-h);
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 62% 38%;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+  }
+
+  /* HEADER */
+  .header {
+    grid-column: 1 / -1;
+    background: var(--black) !important;
+    color: var(--white) !important;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 24px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .header-photo {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.25);
+    flex-shrink: 0;
+    background: #555 !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    overflow: hidden;
+  }
+  .header-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .header-text { flex: 1; }
+  .header-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22pt; font-weight: 700;
+    letter-spacing: -0.5px; line-height: 1;
+    color: var(--white) !important;
+  }
+  .header-title {
+    font-size: 8.5pt; font-weight: 300;
+    letter-spacing: 3px; text-transform: uppercase;
+    margin-top: 3px;
+    color: rgba(255,255,255,0.75) !important;
+  }
+  .header-links {
+    display: flex; flex-direction: column;
+    gap: 7px; align-items: flex-end;
+  }
+  .header-link {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 7.5pt; font-weight: 400;
+    color: rgba(255,255,255,0.82) !important;
+    text-decoration: none; letter-spacing: 0.2px;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .header-link svg {
+    width: 12px; height: 12px;
+    fill: rgba(255,255,255,0.7) !important;
+    flex-shrink: 0; display: block;
+  }
+
+  /* COLUMNS */
+  .col-left  { padding: 20px 20px 22px 22px; border-right: 1px solid var(--border); overflow: hidden; }
+  .col-right { padding: 20px 16px 22px 18px; background: var(--light) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; overflow: hidden; }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 11.5pt; font-weight: 700;
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 9px; padding-bottom: 5px;
+    border-bottom: 2px solid var(--black);
+  }
+  .section-title .icon {
+    width: 19px; height: 19px;
+    background: var(--black) !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .section-title .icon svg { width: 10px; height: 10px; fill: white !important; display: block; }
+
+  .section { margin-bottom: 26px; }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 18px; }
+  .timeline::before {
+    content: ''; position: absolute;
+    left: 7.25px; top: 0; bottom: 0;
+    width: 1.5px;
+    background: var(--border) !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .timeline-item { position: relative; margin-bottom: 14px; }
+  .timeline-item::before {
+    content: ''; position: absolute;
+    left: -14px; top: 5px;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--black) !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 1.5px var(--black);
+  }
+  .timeline-date     { font-size: 7pt; color: #666; font-weight: 500; margin-bottom: 1px; }
+  .timeline-title    { font-weight: 600; font-size: 9pt; }
+  .timeline-subtitle { font-size: 7.5pt; color: #444; font-style: italic; margin-top: 1px; }
+  .timeline-body     { font-size: 7.5pt; color: #555; margin-top: 2px; line-height: 1.4; }
+
+  /* Tags diplômes */
+  .tag-row { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 4px; }
+  .tag {
+    font-size: 6.5pt; font-weight: 500;
+    background: #ebebeb !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    border: 1px solid #d0d0d0; border-radius: 3px;
+    padding: 1px 5px; color: #333;
+  }
+  /* Spécialités bac — même style que .tag, teinte légèrement différente */
+  .spe-row { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 4px; }
+  .spe-badge {
+    font-size: 6.5pt; font-weight: 500;
+    border: 1px solid #aaa; border-radius: 3px;
+    padding: 1px 5px; color: #222;
+    background: #ddd !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+
+  /* XP */
+  .xp-label { font-weight: 600; font-size: 7.5pt; margin-bottom: 2px; color: #222; }
+  .xp-block { margin-top: 9px; }
+  .missions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 8px; }
+  .mission-item {
+    display: flex; align-items: flex-start; gap: 4px;
+    font-size: 7pt; color: #333; line-height: 1.4;
+  }
+  .mission-item::before {
+    content: ''; width: 4px; height: 4px; border-radius: 50%;
+    background: var(--black) !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    margin-top: 3px; flex-shrink: 0;
+  }
+
+  /* Skills */
+  .skills-list { list-style: none; }
+  .skills-list li {
+    display: flex; align-items: flex-start; gap: 7px;
+    margin-bottom: 6px; font-size: 8pt; line-height: 1.45;
+  }
+  .skills-list li::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--black) !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    margin-top: 3px; flex-shrink: 0;
+  }
+  .skills-list li strong { font-weight: 600; white-space: nowrap; }
+
+  /* Contact */
+  .contact-list { list-style: none; }
+  .contact-list li { display: flex; align-items: center; gap: 7px; margin-bottom: 10px; font-size: 8pt; }
+  .contact-icon {
+    width: 18px; height: 18px;
+    background: var(--black) !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .contact-icon svg { width: 9px; height: 9px; fill: white !important; display: block; }
+  .contact-label { font-weight: 500; font-size: 7.5pt; }
+  .contact-value { color: #444; font-size: 7.5pt; }
+
+  /* Langues */
+  .lang-list { list-style: none; }
+  .lang-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 8pt;
+  }
+  .lang-item:last-child { border-bottom: none; }
+  .lang-name { font-weight: 600; }
+  .lang-level { color: #555; font-style: italic; }
+
+  /* Projets */
+  .projet-item { display: flex; gap: 7px; margin-bottom: 9px; font-size: 7.5pt; line-height: 1.5; }
+  .projet-bullet {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--black) !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    margin-top: 3px; flex-shrink: 0;
+  }
+  .projet-text em { font-style: italic; font-weight: 600; }
+
+  /* Badge */
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 8.5pt; font-weight: 600;
+    background: var(--white) !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    border: 1.5px solid var(--border); border-radius: 6px;
+    padding: 6px 10px; margin-top: 3px;
+  }
+  .badge-icon {
+    width: 20px; height: 20px;
+    background: var(--black) !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .badge-icon svg { width: 11px; height: 11px; fill: white !important; display: block; }
+
+  /* Intérêts */
+  .interests { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 2px; }
+  .interest-tag {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: var(--white) !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    border: 1.5px solid var(--border); border-radius: 20px;
+    padding: 3px 9px; font-size: 7.5pt; font-weight: 500;
+  }
+  .interest-tag svg { width: 9px; height: 9px; fill: var(--black) !important; display: block; flex-shrink: 0; }
+
+  /* Print */
+  @media print {
+    html, body { background: white !important; width: var(--page-w); }
+    .page { width: var(--page-w); height: var(--page-h); box-shadow: none; page-break-inside: avoid; break-inside: avoid; }
+    svg { display: block !important; overflow: visible !important; }
+    @page { size: A4; margin: 0; }
+  }
+  @media screen {
+    body { display: flex; justify-content: center; padding: 20px; min-height: 100vh; }
+    .page { box-shadow: 0 8px 40px rgba(0,0,0,0.18); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-photo">
+      <img src="./img/photo_cv.png" alt="Théo MAURIN">
+    </div>
+    <div class="header-text">
+      <div class="header-name">Théo MAURIN</div>
+      <div class="header-title" id="t-title">Développeur</div>
+    </div>
+    <div class="header-links">
+      <a class="header-link" href="https://theo-maurin.fr" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.987 7.987 0 0 1 5.08 16zm2.95-8H5.08a7.987 7.987 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56A15.65 15.65 0 0 0 15.97 16h2.95a8.03 8.03 0 0 1-4.33 3.56zM15.97 8c-.32-1.25-.78-2.45-1.38-3.56A8.03 8.03 0 0 1 18.92 8h-2.95z"/></svg>
+        theo-maurin.fr
+      </a>
+      <a class="header-link" href="https://github.com/theomr1" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.744 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+        github.com/theomr1
+      </a>
+    </div>
+  </header>
+
+  <!-- COL GAUCHE -->
+  <main class="col-left">
+
+    <!-- DIPLÔMES -->
+    <section class="section">
+      <div class="section-title">
+        <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm-7 9.58V17l7 4 7-4v-4.42l-7 3.84-7-3.84z"/></svg></span>
+        <span id="t-diplomes">Diplômes</span>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-date">2024 → 2026</div>
+          <div class="timeline-title" id="t-master-title">Master MIAGE – IPM</div>
+          <div class="timeline-subtitle" id="t-master-sub">Université Toulouse Capitole, 31042 Toulouse</div>
+          <div class="timeline-body" id="t-miage-body">Ingénierie des Processus Métiers — Systèmes d'information, architecture SI, développement cloud &amp; Big Data, intégration continue, agilité.</div>
+          <div class="tag-row" id="t-miage-tags"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2021 → 2024</div>
+          <div class="timeline-title" id="t-licence-title">Licence MIASHS – Informatique-SHS</div>
+          <div class="timeline-subtitle" id="t-licence-sub">Université Jean-Jaurès, 31058 Toulouse</div>
+          <div class="timeline-body" id="t-licence-body">Formation pluridisciplinaire : informatique, mathématiques appliquées et sciences humaines.</div>
+          <div class="tag-row" id="t-licence-tags"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2020</div>
+          <div class="timeline-title" id="t-bac">Baccalauréat</div>
+          <div class="timeline-subtitle">Lycée Louis Barthou, 64000 Pau</div>
+          <div class="spe-row" id="t-spe-tags"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- XP -->
+    <section class="section">
+      <div class="section-title">
+        <span class="icon"><svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.86.18-1A3 3 0 0 0 12 4a3 3 0 0 0-6 1c0 .14.11.56.18 1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zM12 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg></span>
+        <span id="t-xp">Expériences Professionnelles</span>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date" id="t-xp-date">Octobre 2023 → Maintenant</div>
+          <div class="timeline-title" id="t-xp-title">Développeur chez SemWare</div>
+          <div class="timeline-subtitle" id="t-xp-sub">Alternance — Conception et développement d'applications métiers</div>
+
+          <div class="xp-block">
+            <div class="xp-label" id="t-xp1">Analyse &amp; conception</div>
+            <div class="missions-grid">
+              <div class="mission-item" id="t-m1">Recueil et analyse des besoins clients</div>
+              <div class="mission-item" id="t-m2">Préconisation de solutions techniques</div>
+              <div class="mission-item" id="t-m3">Contribution aux propositions commerciales</div>
+            </div>
+          </div>
+          <div class="xp-block">
+            <div class="xp-label" id="t-xp2">Développement &amp; qualité</div>
+            <div class="missions-grid">
+              <div class="mission-item" id="t-m4">Développement de fonctionnalités</div>
+              <div class="mission-item" id="t-m5">Tests unitaires et intégraux</div>
+              <div class="mission-item" id="t-m6">Documentation technique (Banco)</div>
+              <div class="mission-item" id="t-m7">Suivi via Bugzilla</div>
+            </div>
+          </div>
+          <div class="xp-block">
+            <div class="xp-label" id="t-xp3">Installation &amp; déploiement</div>
+            <div class="missions-grid">
+              <div class="mission-item" id="t-m8">Installation et maintenance des applications</div>
+              <div class="mission-item" id="t-m9">Planification des interventions</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONNAISSANCES -->
+    <section class="section">
+      <div class="section-title">
+        <span class="icon"><svg viewBox="0 0 24 24"><path d="M13 2.05V4.07c3.94.49 7 3.85 7 7.93 0 3.21-1.81 6-4.5 7.54L13 17v5h5l-1.22-1.22C19.91 19.07 22 15.76 22 12c0-5.18-3.95-9.45-9-9.95zM11 2.05C5.95 2.55 2 6.82 2 12c0 3.76 2.09 7.07 5.22 8.78L6 22h5V2.05z"/></svg></span>
+        <span id="t-skills">Connaissances</span>
+      </div>
+      <ul class="skills-list" id="skills-list"></ul>
+    </section>
+
+  </main>
+
+  <!-- COL DROITE -->
+  <aside class="col-right">
+
+    <!-- CONTACT -->
+    <section class="section">
+      <div class="section-title">
+        <span class="icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.2 2.47.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg></span>
+        Contact
+      </div>
+      <ul class="contact-list">
+        <li>
+          <span class="contact-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+          <div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:th.maurinpro@gmail.com">th.maurinpro@gmail.com</a></div></div>
+        </li>
+        <li>
+          <span class="contact-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.2 2.47.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg></span>
+          <div><div class="contact-label" id="t-phone">Téléphone</div><div class="contact-value">06 XX XX XX XX</div></div>
+        </li>
+        <li>
+          <span class="contact-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg></span>
+          <div><div class="contact-label" id="t-addr">Adresse</div><div class="contact-value">Toulouse</div></div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- LANGUES -->
+    <section class="section">
+      <div class="section-title">
+        <span class="icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.987 7.987 0 0 1 5.08 16zm2.95-8H5.08a7.987 7.987 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56A15.65 15.65 0 0 0 15.97 16h2.95a8.03 8.03 0 0 1-4.33 3.56zM15.97 8c-.32-1.25-.78-2.45-1.38-3.56A8.03 8.03 0 0 1 18.92 8h-2.95z"/></svg></span>
+        <span id="t-langues">Langues</span>
+      </div>
+      <ul class="lang-list">
+        <li class="lang-item"><span class="lang-name" id="t-fr">Français</span><span class="lang-level" id="t-fr-lvl">Natif</span></li>
+        <li class="lang-item"><span class="lang-name" id="t-en">Anglais</span><span class="lang-level" id="t-en-lvl">Intermédiaire</span></li>
+      </ul>
+    </section>
+
+    <!-- PROJETS -->
+    <section class="section">
+      <div class="section-title">
+        <span class="icon"><svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg></span>
+        <span id="t-projets">Projets Universitaires</span>
+      </div>
+      <div id="projets-list"></div>
+    </section>
+
+    <!-- AUTRE -->
+    <section class="section">
+      <div class="section-title">
+        <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg></span>
+        <span id="t-autre">Autre</span>
+      </div>
+      <div class="badge">
+        <div class="badge-icon"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8l-2.08-5.99zM6.5 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm11 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM5 11l1.5-4.5h11L19 11H5z"/></svg></div>
+        <span id="t-permis">Permis B</span>
+      </div>
+    </section>
+
+    <!-- INTÉRÊTS -->
+    <section class="section">
+      <div class="section-title">
+        <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span>
+        <span id="t-interests">Centres d'intérêts</span>
+      </div>
+      <div class="interests">
+        <span class="interest-tag">
+          <svg viewBox="0 0 24 24"><path d="M21 6H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1zm-10 9H8v-2h3v2zm0-4H8V9h3v2zm6 4h-4v-2h4v2zm0-4h-4V9h4v2z"/></svg>
+          <span id="t-jeux">Jeux vidéo</span>
+        </span>
+        <span class="interest-tag">
+          <svg viewBox="0 0 24 24"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
+          <span id="t-musique">Musique</span>
+        </span>
+        <span class="interest-tag">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 17.93V18a1 1 0 0 0-2 0v1.93A8 8 0 0 1 4.07 13H6a1 1 0 0 0 0-2H4.07A8 8 0 0 1 11 4.07V6a1 1 0 0 0 2 0V4.07A8 8 0 0 1 19.93 11H18a1 1 0 0 0 0 2h1.93A8 8 0 0 1 13 19.93z"/></svg>
+          <span id="t-voyages">Voyages</span>
+        </span>
+      </div>
+    </section>
+
+  </aside>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function () {
+  const isFr = (navigator.languages || [navigator.language || '']).some(l => /^fr\b/i.test(l));
+
+  /* ── Dictionnaire complet ── */
+  const T = {
+    title:        { fr: 'Développeur',                        en: 'Developer' },
+    diplomes:     { fr: 'Diplômes',                           en: 'Education' },
+    xp:           { fr: 'Expériences Professionnelles',       en: 'Work Experience' },
+    skills:       { fr: 'Connaissances',                      en: 'Skills' },
+    langues:      { fr: 'Langues',                            en: 'Languages' },
+    projets:      { fr: 'Projets Universitaires',             en: 'Academic Projects' },
+    autre:        { fr: 'Autre',                              en: 'Other' },
+    interests:    { fr: "Centres d'intérêts",                 en: 'Interests' },
+    phone:        { fr: 'Téléphone',                          en: 'Phone' },
+    addr:         { fr: 'Adresse',                            en: 'Location' },
+    permis:       { fr: 'Permis B',                           en: 'Driving license (cat. B)' },
+    bac:          { fr: 'Baccalauréat',                       en: 'French Baccalaureate' },
+    'master-title': { fr: 'Master MIAGE – IPM',                 en: "Master's MIAGE – IPM" },
+    'master-sub':   { fr: 'Université Toulouse Capitole, 31042 Toulouse', en: 'Toulouse Capitole University, 31042 Toulouse' },
+    'licence-title':{ fr: 'Licence MIASHS – Informatique-SHS',  en: "Bachelor's MIASHS – CS & Social Sciences" },
+    'licence-sub':  { fr: 'Université Jean-Jaurès, 31058 Toulouse', en: 'Université Jean-Jaurès, 31058 Toulouse' },
+    'miage-body': { fr: "Ingénierie des Processus Métiers — Systèmes d'information, architecture SI, développement cloud & Big Data, intégration continue, agilité.",
+                    en: "Business Process Engineering — Information systems, SI architecture, cloud & Big Data development, continuous integration, agility." },
+    'licence-body':{ fr: "Formation pluridisciplinaire : informatique, mathématiques appliquées et sciences humaines.",
+                    en: "Multidisciplinary programme: computer science, applied mathematics and social sciences." },
+    'xp-date':    { fr: 'Octobre 2023 → Maintenant',          en: 'October 2023 → Present' },
+    'xp-title':   { fr: 'Développeur chez SemWare',           en: 'Developer at SemWare' },
+    'xp-sub':     { fr: "Alternance — Conception et développement d'applications métiers", en: "Apprenticeship — Design and development of business applications" },
+    xp1:          { fr: 'Analyse & conception',               en: 'Analysis & design' },
+    xp2:          { fr: 'Développement & qualité',            en: 'Development & quality' },
+    xp3:          { fr: 'Installation & déploiement',         en: 'Installation & deployment' },
+    m1:           { fr: 'Recueil et analyse des besoins clients', en: 'Gathering and analysing client requirements' },
+    m2:           { fr: 'Préconisation de solutions techniques',  en: 'Recommending technical solutions' },
+    m3:           { fr: 'Contribution aux propositions commerciales', en: 'Contributing to commercial proposals' },
+    m4:           { fr: 'Développement de fonctionnalités',    en: 'Feature development' },
+    m5:           { fr: 'Tests unitaires et intégraux',        en: 'Unit and integration testing' },
+    m6:           { fr: 'Documentation technique (Banco)',     en: 'Technical documentation (Banco)' },
+    m7:           { fr: 'Suivi via Bugzilla',                  en: 'Issue tracking via Bugzilla' },
+    m8:           { fr: 'Installation et maintenance des applications', en: 'Application installation and maintenance' },
+    m9:           { fr: 'Planification des interventions',     en: 'Scheduling interventions' },
+    fr:           { fr: 'Français',   en: 'French' },
+    'fr-lvl':     { fr: 'Natif',      en: 'Native' },
+    en:           { fr: 'Anglais',    en: 'English' },
+    'en-lvl':     { fr: 'Intermédiaire', en: 'Intermediate' },
+    jeux:         { fr: 'Jeux vidéo', en: 'Video games' },
+    musique:      { fr: 'Musique',    en: 'Music' },
+    voyages:      { fr: 'Voyages',    en: 'Travel' },
+  };
+
+  const pick = k => T[k] ? (isFr ? T[k].fr : T[k].en) : '';
+
+  /* Textes simples */
+  Object.keys(T).forEach(k => {
+    const el = document.getElementById('t-' + k);
+    if (el) el.textContent = pick(k);
+  });
+  document.title = isFr ? 'CV – Théo MAURIN' : 'Resume – Théo MAURIN';
+  document.documentElement.lang = isFr ? 'fr' : 'en';
+
+  /* Tags diplômes */
+  const miageTags = isFr
+    ? ['Développement Front/Back','Big Data','Cloud','Architecture SI','CI/CD','Agilité','Intégration de données','Process Intelligence']
+    : ['Front/Back Development','Big Data','Cloud','SI Architecture','CI/CD','Agility','Data Integration','Process Intelligence'];
+  document.getElementById('t-miage-tags').innerHTML = miageTags.map(t => `<span class="tag">${t}</span>`).join('');
+
+  const licenceTags = isFr
+    ? ['Algorithmique','POO','Bases de données','Système & Réseau','Programmation Web','IA (intro)','Statistiques','Cryptographie','Théorie des langages','Graphes']
+    : ['Algorithms','OOP','Databases','OS & Networks','Web Programming','AI (intro)','Statistics','Cryptography','Language Theory','Graph Theory'];
+  document.getElementById('t-licence-tags').innerHTML = licenceTags.map(t => `<span class="tag">${t}</span>`).join('');
+
+  const speTags = isFr
+    ? ['Mathématiques','Sciences Économiques et Sociales','Physique-Chimie']
+    : ['Mathematics','Economics & Social Sciences','Physics & Chemistry'];
+  document.getElementById('t-spe-tags').innerHTML = speTags.map(t => `<span class="spe-badge">${t}</span>`).join('');
+
+  /* Skills */
+  const skills = isFr ? [
+    { label: 'WEB',                    val: 'HTML, CSS, JavaScript, PHP<br><span style="color:#555;font-weight:400">Frameworks : React, Springboot</span>' },
+    { label: 'BD SQL',                 val: 'MySQL, Oracle' },
+    { label: 'BD NoSQL',               val: 'MongoDB' },
+    { label: 'Analyses de données',    val: 'Langage R, Power BI' },
+    { label: 'Big data',               val: 'Hadoop, Apache Spark' },
+    { label: 'Reporting',              val: 'SAP BO, Etats et Requêtes' },
+    { label: 'Langages de programmation', val: 'Python, Go, C++, Windev, Scala, Haskell' },
+    { label: 'Web services',           val: 'REST, SOAP (WSDL), AWS API Gateway' },
+    { label: 'Cloud & IaC',            val: 'Terraform, AWS S3' },
+    { label: 'CI/CD',                  val: 'Pipeline Gitlab' },
+  ] : [
+    { label: 'WEB',                    val: 'HTML, CSS, JavaScript, PHP<br><span style="color:#555;font-weight:400">Frameworks: React, Springboot</span>' },
+    { label: 'SQL DB',                 val: 'MySQL, Oracle' },
+    { label: 'NoSQL DB',               val: 'MongoDB' },
+    { label: 'Data analysis',          val: 'R language, Power BI' },
+    { label: 'Big data',               val: 'Hadoop, Apache Spark' },
+    { label: 'Reporting',              val: 'SAP BO, Reports and Queries' },
+    { label: 'Programming languages',  val: 'Python, Go, C++, Windev, Scala, Haskell' },
+    { label: 'Web services',           val: 'REST, SOAP (WSDL), AWS API Gateway' },
+    { label: 'Cloud & IaC',            val: 'Terraform, AWS S3' },
+    { label: 'CI/CD',                  val: 'Gitlab Pipeline' },
+  ];
+  document.getElementById('skills-list').innerHTML = skills.map(s =>
+    `<li><div><strong>${s.label} :</strong> ${s.val}</div></li>`
+  ).join('');
+
+  /* Projets */
+  const projets = isFr ? [
+    { em: 'Compte rendu de traitement statistique', rest: ' sur les données du COVID avec R' },
+    { em: "Site de prévention sur l'impact carbone des individus", rest: " selon leurs habitudes de vie, langages WEB et APIs publiques (groupe de 4)" },
+    { pre: 'Une ', em: 'To-Do list', rest: ' en Python avec le package tkinter (en binôme)' },
+    { em: 'Projet informatique-SHS', rest: " : introduction à l'IA appliquée aux données SHS (L2)" },
+  ] : [
+    { em: 'Statistical analysis report', rest: ' on COVID data using R' },
+    { em: 'Carbon footprint awareness website', rest: ' based on lifestyle habits, using web technologies and public APIs (group of 4)' },
+    { pre: 'A ', em: 'To-Do list', rest: ' in Python using the tkinter package (pair project)' },
+    { em: 'CS-Social Sciences project', rest: ': introduction to AI applied to social science data (L2)' },
+  ];
+  document.getElementById('projets-list').innerHTML = projets.map(p => {
+    const txt = (p.pre || '') + `<em>${p.em}</em>` + (p.rest || '');
+    return `<div class="projet-item"><div class="projet-bullet"></div><div class="projet-text">${txt}</div></div>`;
+  }).join('');
+
+})();
+</script>
+</body>
+</html>
