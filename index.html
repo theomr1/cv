@@ -584,9 +584,10 @@
   }).join('');
 
   const params = new URLSearchParams(window.location.search);
-  const strip = v => v ? v.replace(/^["']|["']$/g, '').trim() : v;
+  const strip  = v => v ? v.replace(/^["']|["']$/g, '').trim() : v;
+  const fmtTel = v => /^\d{10}$/.test(v) ? v.match(/.{2}/g).join(' ') : v;
   const paramTitle = strip(params.get('title'));
-  const paramTel   = strip(params.get('tel'));
+  const paramTel   = fmtTel(strip(params.get('tel')));
   if (paramTitle) document.getElementById('t-title').textContent = paramTitle;
   if (paramTel)   document.getElementById('t-phone-value').textContent = paramTel;
 
