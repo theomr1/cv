@@ -584,8 +584,9 @@
   }).join('');
 
   const params = new URLSearchParams(window.location.search);
-  const paramTitle = params.get('title');
-  const paramTel   = params.get('tel');
+  const strip = v => v ? v.replace(/^["']|["']$/g, '').trim() : v;
+  const paramTitle = strip(params.get('title'));
+  const paramTel   = strip(params.get('tel'));
   if (paramTitle) document.getElementById('t-title').textContent = paramTitle;
   if (paramTel)   document.getElementById('t-phone-value').textContent = paramTel;
 
