@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📃</text></svg>">
 <title>CV – Théo MAURIN</title>
+<meta name="description" content="CV de Théo MAURIN, Développeur chez SemWare, Master MIAGE à l'Université Toulouse Capitole. Compétences : HTML, CSS, JavaScript, PHP, React, Springboot, Python, Go, MySQL, Oracle, MongoDB, AWS, Terraform, Git, CI/CD Gitlab, Big Data, Hadoop, Apache Spark.">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  h1, h2, h3 { font-size: inherit; font-weight: inherit; }
 
   :root {
     --black: #111111;
@@ -152,7 +154,7 @@
     border: 1px solid #d0d0d0; border-radius: 3px;
     padding: 1px 5px; color: #333;
   }
-  /* Spécialités bac — même style que .tag, teinte légèrement différente */
+  /* Spécialités bac :même style que .tag, teinte légèrement différente */
   .spe-row { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 4px; }
   .spe-badge {
     font-size: 6.5pt; font-weight: 500;
@@ -204,6 +206,7 @@
   .contact-icon svg { width: 9px; height: 9px; fill: white !important; display: block; }
   .contact-label { font-weight: 500; font-size: 7.5pt; }
   .contact-value { color: #444; font-size: 7.5pt; }
+  .contact-value a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 
   /* Langues */
   .lang-list { list-style: none; }
@@ -224,6 +227,7 @@
     margin-top: 3px; flex-shrink: 0;
   }
   .projet-text em { font-style: italic; font-weight: 600; }
+  .projet-text a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 
   /* Badge */
   .badge {
@@ -254,6 +258,9 @@
   }
   .interest-tag svg { width: 9px; height: 9px; fill: var(--black) !important; display: block; flex-shrink: 0; }
 
+  /* Profil header */
+  .header-profil { font-size: 7pt; font-weight: 300; color: rgba(255,255,255,0.65); margin-top: 5px; line-height: 1.5; }
+
   /* Print */
   @media print {
     html, body { background: white !important; width: var(--page-w); }
@@ -276,8 +283,9 @@
       <img src="./img/photo_cv.png" alt="Théo MAURIN">
     </div>
     <div class="header-text">
-      <div class="header-name">Théo MAURIN</div>
+      <h1 class="header-name">Théo MAURIN</h1>
       <div class="header-title" id="t-title">Développeur</div>
+      <p class="header-profil" id="t-profil-text">Développeur passionné par la conception d'applications métiers, je poursuis un Master MIAGE à l'Université Toulouse Capitole. Rigoureux et polyvalent, j'interviens à toutes les étapes du développement : analyse des besoins, développement full-stack, tests et déploiement. Appétence pour le cloud, les données et l'intégration continue.</p>
     </div>
     <div class="header-links">
       <a class="header-link" href="https://www.theo-maurin.fr" target="_blank">
@@ -296,18 +304,18 @@
 
     <!-- DIPLÔMES -->
     <section class="section">
-      <div class="section-title">
+      <h2 class="section-title">
         <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm-7 9.58V17l7 4 7-4v-4.42l-7 3.84-7-3.84z"/></svg></span>
         <span id="t-diplomes">Diplômes</span>
-      </div>
+      </h2>
       <div class="timeline">
 
         <div class="timeline-item">
           <div class="timeline-date">2024 → 2026</div>
           <div class="timeline-title" id="t-master-title">Master MIAGE – IPM</div>
           <div class="timeline-subtitle" id="t-master-sub">Université Toulouse Capitole, 31042 Toulouse</div>
-          <div class="timeline-body" id="t-miage-body">Ingénierie des Processus Métiers — Systèmes d'information, architecture SI, développement cloud &amp; Big Data, intégration continue, agilité.</div>
-          <div class="tag-row" id="t-miage-tags"></div>
+          <div class="timeline-body" id="t-miage-body">Ingénierie des Processus Métiers : Systèmes d'information, architecture SI, développement cloud &amp; Big Data, intégration continue, agilité.</div>
+          <div class="tag-row" id="t-miage-tags"><span class="tag">Développement Front/Back</span><span class="tag">Big Data</span><span class="tag">Cloud</span><span class="tag">Architecture SI</span><span class="tag">CI/CD</span><span class="tag">Agilité</span><span class="tag">Intégration de données</span><span class="tag">Process Intelligence</span></div>
         </div>
 
         <div class="timeline-item">
@@ -315,14 +323,14 @@
           <div class="timeline-title" id="t-licence-title">Licence MIASHS – Informatique-SHS</div>
           <div class="timeline-subtitle" id="t-licence-sub">Université Jean-Jaurès, 31058 Toulouse</div>
           <div class="timeline-body" id="t-licence-body">Formation pluridisciplinaire : informatique, mathématiques appliquées et sciences humaines.</div>
-          <div class="tag-row" id="t-licence-tags"></div>
+          <div class="tag-row" id="t-licence-tags"><span class="tag">Algorithmique</span><span class="tag">POO</span><span class="tag">Bases de données</span><span class="tag">Système &amp; Réseau</span><span class="tag">Programmation Web</span><span class="tag">IA (intro)</span><span class="tag">Statistiques</span><span class="tag">Cryptographie</span><span class="tag">Théorie des langages</span><span class="tag">Graphes</span></div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-date">2020</div>
           <div class="timeline-title" id="t-bac">Baccalauréat</div>
           <div class="timeline-subtitle">Lycée Louis Barthou, 64000 Pau</div>
-          <div class="spe-row" id="t-spe-tags"></div>
+          <div class="tag-row" id="t-spe-tags"><span class="tag">Mathématiques</span><span class="tag">Sciences Économiques et Sociales</span><span class="tag">Physique-Chimie</span></div>
         </div>
 
       </div>
@@ -330,29 +338,27 @@
 
     <!-- XP -->
     <section class="section">
-      <div class="section-title">
+      <h2 class="section-title">
         <span class="icon"><svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.86.18-1A3 3 0 0 0 12 4a3 3 0 0 0-6 1c0 .14.11.56.18 1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zM12 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg></span>
         <span id="t-xp">Expériences Professionnelles</span>
-      </div>
+      </h2>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-date" id="t-xp-date">Octobre 2023 → Maintenant</div>
           <div class="timeline-title" id="t-xp-title">Développeur chez SemWare</div>
-          <div class="timeline-subtitle" id="t-xp-sub">Alternance — Conception et développement d'applications métiers</div>
+          <div class="timeline-subtitle" id="t-xp-sub">Conception et développement d'applications métiers</div>
 
           <div class="xp-block">
             <div class="xp-label" id="t-xp1">Analyse &amp; conception</div>
             <div class="missions-grid">
               <div class="mission-item" id="t-m1">Recueil et analyse des besoins clients</div>
-              <div class="mission-item" id="t-m2">Préconisation de solutions techniques</div>
-              <div class="mission-item" id="t-m3">Contribution aux propositions commerciales</div>
             </div>
           </div>
           <div class="xp-block">
             <div class="xp-label" id="t-xp2">Développement &amp; qualité</div>
             <div class="missions-grid">
-              <div class="mission-item" id="t-m4">Développement de fonctionnalités</div>
-              <div class="mission-item" id="t-m5">Tests unitaires et intégraux</div>
+              <div class="mission-item" id="t-m4">Développement et correction de fonctionnalités</div>
+              <div class="mission-item" id="t-m5">Migration Oracle Reports → WinDev E&amp;R</div>
               <div class="mission-item" id="t-m6">Documentation technique (Banco)</div>
               <div class="mission-item" id="t-m7">Suivi via Bugzilla</div>
             </div>
@@ -360,9 +366,13 @@
           <div class="xp-block">
             <div class="xp-label" id="t-xp3">Installation &amp; déploiement</div>
             <div class="missions-grid">
-              <div class="mission-item" id="t-m8">Installation et maintenance des applications</div>
+              <div class="mission-item" id="t-m8">MCA de Minimoi (planning, facturation, propositions commerciales)</div>
               <div class="mission-item" id="t-m9">Planification des interventions</div>
             </div>
+          </div>
+          <div class="xp-block">
+            <div class="xp-label" id="t-xp4">Environnement technique</div>
+            <div class="timeline-body" style="color: #333;" id="t-xp-tech">WinDev / WLangage, Oracle, PL/SQL, Bugzilla, Banco</div>
           </div>
         </div>
       </div>
@@ -370,11 +380,11 @@
 
     <!-- CONNAISSANCES -->
     <section class="section">
-      <div class="section-title">
+      <h2 class="section-title">
         <span class="icon"><svg viewBox="0 0 24 24"><path d="M13 2.05V4.07c3.94.49 7 3.85 7 7.93 0 3.21-1.81 6-4.5 7.54L13 17v5h5l-1.22-1.22C19.91 19.07 22 15.76 22 12c0-5.18-3.95-9.45-9-9.95zM11 2.05C5.95 2.55 2 6.82 2 12c0 3.76 2.09 7.07 5.22 8.78L6 22h5V2.05z"/></svg></span>
         <span id="t-skills">Connaissances</span>
-      </div>
-      <ul class="skills-list" id="skills-list"></ul>
+      </h2>
+      <ul class="skills-list" id="skills-list"><li><div><strong>WEB :</strong> HTML, CSS, JavaScript, PHP<br><span style="color:#555;font-weight:400">Frameworks : React, Spring Boot (Thymeleaf), FastAPI</span></div></li><li><div><strong>BD SQL :</strong> MySQL, PostgreSQL, Oracle (SQL Developer)</div></li><li><div><strong>BD NoSQL :</strong> MongoDB</div></li><li><div><strong>Analyses de données :</strong> Langage R, Power BI</div></li><li><div><strong>Big data :</strong> Hadoop, Apache Spark</div></li><li><div><strong>Reporting :</strong> SAP BO, Etats et Requêtes</div></li><li><div><strong>Langages de programmation :</strong> Java, Python, Go, C++, Scala, Haskell</div></li><li><div><strong>Web services :</strong> REST, SOAP (WSDL), Swagger / OpenAPI, AWS API Gateway</div></li><li><div><strong>Cloud &amp; IaC :</strong> Terraform, AWS S3, Kubernetes / OpenShift</div></li><li><div><strong>CI/CD :</strong> Pipeline Gitlab, Git, Docker, Maven</div></li></ul>
     </section>
 
   </main>
@@ -384,10 +394,10 @@
 
     <!-- CONTACT -->
     <section class="section">
-      <div class="section-title">
+      <h2 class="section-title">
         <span class="icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.2 2.47.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg></span>
         Contact
-      </div>
+      </h2>
       <ul class="contact-list">
         <li>
           <span class="contact-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
@@ -406,10 +416,10 @@
 
     <!-- LANGUES -->
     <section class="section">
-      <div class="section-title">
+      <h2 class="section-title">
         <span class="icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.987 7.987 0 0 1 5.08 16zm2.95-8H5.08a7.987 7.987 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56A15.65 15.65 0 0 0 15.97 16h2.95a8.03 8.03 0 0 1-4.33 3.56zM15.97 8c-.32-1.25-.78-2.45-1.38-3.56A8.03 8.03 0 0 1 18.92 8h-2.95z"/></svg></span>
         <span id="t-langues">Langues</span>
-      </div>
+      </h2>
       <ul class="lang-list">
         <li class="lang-item"><span class="lang-name" id="t-fr">Français</span><span class="lang-level" id="t-fr-lvl">Natif</span></li>
         <li class="lang-item"><span class="lang-name" id="t-en">Anglais</span><span class="lang-level" id="t-en-lvl">Intermédiaire</span></li>
@@ -418,19 +428,19 @@
 
     <!-- PROJETS -->
     <section class="section">
-      <div class="section-title">
+      <h2 class="section-title">
         <span class="icon"><svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg></span>
         <span id="t-projets">Projets Universitaires</span>
-      </div>
-      <div id="projets-list"></div>
+      </h2>
+      <div id="projets-list"><div class="projet-item"><div class="projet-bullet"></div><div class="projet-text"><em>Compte rendu de traitement statistique</em> sur les données du COVID avec R : analyse exploratoire, visualisations et rapport</div></div><div class="projet-item"><div class="projet-bullet"></div><div class="projet-text"><em>Site de prévention sur l'impact carbone des individus</em> selon leurs habitudes de vie : HTML, CSS, JS et OpenData (groupe de 4)</div></div><div class="projet-item"><div class="projet-bullet"></div><div class="projet-text"><a href="https://github.com/theomr1/m2-ipm-projet-dai" target="_blank"><em>Application de gestion des présences étudiants</em></a> : Java Servlet/JSP, Hibernate ORM, Tomcat, Docker, export PDF (M2)</div></div><div class="projet-item"><div class="projet-bullet"></div><div class="projet-text"><a href="https://gitlab.com/Cutecookiebear/plateforme-streaming-video" target="_blank"><em>Plateforme de streaming vidéo cloud native</em></a> : microservices (FastAPI, React), CI/CD GitLab 6 stages, déploiement Red Hat OpenShift, observabilité Loki/Grafana (M2, groupe de 3)</div></div></div>
     </section>
 
     <!-- AUTRE -->
     <section class="section">
-      <div class="section-title">
+      <h2 class="section-title">
         <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg></span>
         <span id="t-autre">Autre</span>
-      </div>
+      </h2>
       <div class="badge">
         <div class="badge-icon"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-8l-2.08-5.99zM6.5 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm11 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM5 11l1.5-4.5h11L19 11H5z"/></svg></div>
         <span id="t-permis">Permis B</span>
@@ -439,10 +449,10 @@
 
     <!-- INTÉRÊTS -->
     <section class="section">
-      <div class="section-title">
+      <h2 class="section-title">
         <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span>
         <span id="t-interests">Centres d'intérêts</span>
-      </div>
+      </h2>
       <div class="interests">
         <span class="interest-tag">
           <svg viewBox="0 0 24 24"><path d="M21 6H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1zm-10 9H8v-2h3v2zm0-4H8V9h3v2zm6 4h-4v-2h4v2zm0-4h-4V9h4v2z"/></svg>
@@ -469,6 +479,12 @@
   /* ── Dictionnaire complet ── */
   const T = {
     title:        { fr: 'Développeur',                        en: 'Developer' },
+    profil:       { fr: 'Profil',                              en: 'Profile' },
+    'profil-text':{ fr: "Développeur passionné par la conception d'applications métiers, je poursuis un Master MIAGE à l'Université Toulouse Capitole. Rigoureux et polyvalent, j'interviens à toutes les étapes du développement : analyse des besoins, développement full-stack, tests et déploiement. Appétence pour le cloud, les données et l'intégration continue.",
+                    en: "Developer passionate about business application design, currently pursuing a Master's MIAGE at Toulouse Capitole University. Diligent and versatile, I contribute across the full development lifecycle: requirements analysis, full-stack development, testing and deployment. Strong interest in cloud, data and continuous integration." },
+    xp4:          { fr: 'Environnement technique',             en: 'Tech stack' },
+    'xp-tech':    { fr: 'WinDev / WLangage, Oracle, PL/SQL, Bugzilla, Banco',
+                    en: 'WinDev / WLangage, Oracle, PL/SQL, Bugzilla, Banco' },
     diplomes:     { fr: 'Diplômes',                           en: 'Education' },
     xp:           { fr: 'Expériences Professionnelles',       en: 'Work Experience' },
     skills:       { fr: 'Connaissances',                      en: 'Skills' },
@@ -484,24 +500,22 @@
     'master-sub':   { fr: 'Université Toulouse Capitole, 31042 Toulouse', en: 'Toulouse Capitole University, 31042 Toulouse' },
     'licence-title':{ fr: 'Licence MIASHS – Informatique-SHS',  en: "Bachelor's MIASHS – CS & Social Sciences" },
     'licence-sub':  { fr: 'Université Jean-Jaurès, 31058 Toulouse', en: 'Université Jean-Jaurès, 31058 Toulouse' },
-    'miage-body': { fr: "Ingénierie des Processus Métiers — Systèmes d'information, architecture SI, développement cloud & Big Data, intégration continue, agilité.",
-                    en: "Business Process Engineering — Information systems, SI architecture, cloud & Big Data development, continuous integration, agility." },
+    'miage-body': { fr: "Ingénierie des Processus Métiers : Systèmes d'information, architecture SI, développement cloud & Big Data, intégration continue, agilité.",
+                    en: "Business Process Engineering : Information systems, SI architecture, cloud & Big Data development, continuous integration, agility." },
     'licence-body':{ fr: "Formation pluridisciplinaire : informatique, mathématiques appliquées et sciences humaines.",
                     en: "Multidisciplinary programme: computer science, applied mathematics and social sciences." },
     'xp-date':    { fr: 'Octobre 2023 → Maintenant',          en: 'October 2023 → Present' },
     'xp-title':   { fr: 'Développeur chez SemWare',           en: 'Developer at SemWare' },
-    'xp-sub':     { fr: "Alternance — Conception et développement d'applications métiers", en: "Apprenticeship — Design and development of business applications" },
+    'xp-sub':     { fr: "Conception et développement d'applications métiers", en: "Design and development of business applications" },
     xp1:          { fr: 'Analyse & conception',               en: 'Analysis & design' },
     xp2:          { fr: 'Développement & qualité',            en: 'Development & quality' },
     xp3:          { fr: 'Installation & déploiement',         en: 'Installation & deployment' },
     m1:           { fr: 'Recueil et analyse des besoins clients', en: 'Gathering and analysing client requirements' },
-    m2:           { fr: 'Préconisation de solutions techniques',  en: 'Recommending technical solutions' },
-    m3:           { fr: 'Contribution aux propositions commerciales', en: 'Contributing to commercial proposals' },
-    m4:           { fr: 'Développement de fonctionnalités',    en: 'Feature development' },
-    m5:           { fr: 'Tests unitaires et intégraux',        en: 'Unit and integration testing' },
+    m4:           { fr: 'Développement et correction de fonctionnalités', en: 'Feature development and bug fixing' },
+    m5:           { fr: 'Migration Oracle Reports → WinDev E&R', en: 'Oracle Reports → WinDev Reports & Queries migration' },
     m6:           { fr: 'Documentation technique (Banco)',     en: 'Technical documentation (Banco)' },
     m7:           { fr: 'Suivi via Bugzilla',                  en: 'Issue tracking via Bugzilla' },
-    m8:           { fr: 'Installation et maintenance des applications', en: 'Application installation and maintenance' },
+    m8:           { fr: 'MCA de Minimoi (planning, facturation, propositions commerciales)', en: 'Application maintenance (MCA) of Minimoi (scheduling, billing, commercial proposals)' },
     m9:           { fr: 'Planification des interventions',     en: 'Scheduling interventions' },
     fr:           { fr: 'Français',   en: 'French' },
     'fr-lvl':     { fr: 'Natif',      en: 'Native' },
@@ -536,31 +550,31 @@
   const speTags = isFr
     ? ['Mathématiques','Sciences Économiques et Sociales','Physique-Chimie']
     : ['Mathematics','Economics & Social Sciences','Physics & Chemistry'];
-  document.getElementById('t-spe-tags').innerHTML = speTags.map(t => `<span class="spe-badge">${t}</span>`).join('');
+  document.getElementById('t-spe-tags').innerHTML = speTags.map(t => `<span class="tag">${t}</span>`).join('');
 
   /* Skills */
   const skills = isFr ? [
-    { label: 'WEB',                    val: 'HTML, CSS, JavaScript, PHP<br><span style="color:#555;font-weight:400">Frameworks : React, Springboot</span>' },
-    { label: 'BD SQL',                 val: 'MySQL, Oracle' },
+    { label: 'WEB',                    val: 'HTML, CSS, JavaScript, PHP<br><span style="color:#555;font-weight:400">Frameworks : React, Spring Boot (Thymeleaf), FastAPI</span>' },
+    { label: 'BD SQL',                 val: 'MySQL, PostgreSQL, Oracle (SQL Developer)' },
     { label: 'BD NoSQL',               val: 'MongoDB' },
-    { label: 'Analyses de données',    val: 'Langage R, Power BI' },
+    { label: 'Analyses de données',    val: 'Langage R (Quarto, RMarkdown), Power BI' },
     { label: 'Big data',               val: 'Hadoop, Apache Spark' },
     { label: 'Reporting',              val: 'SAP BO, Etats et Requêtes' },
-    { label: 'Langages de programmation', val: 'Python, Go, C++, Windev, Scala, Haskell' },
-    { label: 'Web services',           val: 'REST, SOAP (WSDL), AWS API Gateway' },
-    { label: 'Cloud & IaC',            val: 'Terraform, AWS S3' },
-    { label: 'CI/CD',                  val: 'Pipeline Gitlab' },
+    { label: 'Langages de programmation', val: 'Java, Python, Go, C++, Scala, Haskell' },
+    { label: 'Web services',           val: 'REST, SOAP (WSDL), Swagger / OpenAPI, AWS API Gateway' },
+    { label: 'Cloud & IaC',            val: 'Terraform, AWS S3, Kubernetes / OpenShift' },
+    { label: 'CI/CD',                  val: 'Pipeline Gitlab, Git, Docker, Maven' },
   ] : [
-    { label: 'WEB',                    val: 'HTML, CSS, JavaScript, PHP<br><span style="color:#555;font-weight:400">Frameworks: React, Springboot</span>' },
-    { label: 'SQL DB',                 val: 'MySQL, Oracle' },
+    { label: 'WEB',                    val: 'HTML, CSS, JavaScript, PHP<br><span style="color:#555;font-weight:400">Frameworks: React, Spring Boot, FastAPI</span>' },
+    { label: 'SQL DB',                 val: 'MySQL, PostgreSQL, Oracle (SQL Developer)' },
     { label: 'NoSQL DB',               val: 'MongoDB' },
-    { label: 'Data analysis',          val: 'R language, Power BI' },
+    { label: 'Data analysis',          val: 'R language (Quarto, RMarkdown), Power BI' },
     { label: 'Big data',               val: 'Hadoop, Apache Spark' },
     { label: 'Reporting',              val: 'SAP BO, Reports and Queries' },
-    { label: 'Programming languages',  val: 'Python, Go, C++, Windev, Scala, Haskell' },
-    { label: 'Web services',           val: 'REST, SOAP (WSDL), AWS API Gateway' },
-    { label: 'Cloud & IaC',            val: 'Terraform, AWS S3' },
-    { label: 'CI/CD',                  val: 'Gitlab Pipeline' },
+    { label: 'Programming languages',  val: 'Java, Python, Go, C++, Scala, Haskell' },
+    { label: 'Web services',           val: 'REST, SOAP (WSDL), Swagger / OpenAPI, AWS API Gateway' },
+    { label: 'Cloud & IaC',            val: 'Terraform, AWS S3, Kubernetes / OpenShift' },
+    { label: 'CI/CD',                  val: 'Gitlab Pipeline, Git, Docker' },
   ];
   document.getElementById('skills-list').innerHTML = skills.map(s =>
     `<li><div><strong>${s.label} :</strong> ${s.val}</div></li>`
@@ -568,18 +582,21 @@
 
   /* Projets */
   const projets = isFr ? [
-    { em: 'Compte rendu de traitement statistique', rest: ' sur les données du COVID avec R' },
-    { em: "Site de prévention sur l'impact carbone des individus", rest: " selon leurs habitudes de vie, langages WEB et APIs publiques (groupe de 4)" },
-    { pre: 'Une ', em: 'To-Do list', rest: ' en Python avec le package tkinter (en binôme)' },
-    { em: 'Projet informatique-SHS', rest: " : introduction à l'IA appliquée aux données SHS (L2)" },
+    { em: 'Application de gestion des présences étudiants', rest: ' : Java Servlet/JSP, Hibernate ORM, Tomcat, Docker, export PDF (M2)', link: 'https://github.com/theomr1/m2-ipm-projet-dai' },
+    { em: 'Plateforme de streaming vidéo cloud native', rest: ' : microservices (FastAPI, React), CI/CD GitLab 6 stages, déploiement Red Hat OpenShift, observabilité Loki/Grafana (M2, groupe de 3)', link: 'https://gitlab.com/Cutecookiebear/plateforme-streaming-video' },
+    { em: 'Intégration de données, Data Matching', rest: ' : profiling, standardisation (Metaphone, Levenshtein), blocking multi-stratégies, scoring flou (M2, binôme)', link: 'https://colab.research.google.com/drive/1EQbaRkqnynFx64qKQXWm2co9iiEKXd40?usp=sharing' },
+    { em: "Site de prévention sur l'impact carbone des individus", rest: " selon leurs habitudes de vie : HTML, CSS, JS et OpenData (groupe de 4)", link: 'https://github.com/theomr1/l2-projet-shs' },
+    { em: 'Analyse statistique des données COVID', rest: ' : R, RMarkdown, SQL/MariaDB, OpenData (data.gouv.fr, INSEE) — hospitalisations par département (L2, groupe de 5)', link: 'https://1drv.ms/u/c/38390163119b96ce/IQAaA_5Qvnd3TIjnJHgwgtH0AaTg7Ewx-EeXORlAvYx_sx0?e=gcs8by' },
   ] : [
-    { em: 'Statistical analysis report', rest: ' on COVID data using R' },
-    { em: 'Carbon footprint awareness website', rest: ' based on lifestyle habits, using web technologies and public APIs (group of 4)' },
-    { pre: 'A ', em: 'To-Do list', rest: ' in Python using the tkinter package (pair project)' },
-    { em: 'CS-Social Sciences project', rest: ': introduction to AI applied to social science data (L2)' },
+    { em: 'Student attendance management application', rest: ' : Java Servlet/JSP, Hibernate ORM, Tomcat, Docker, PDF export (M2)', link: 'https://github.com/theomr1/m2-ipm-projet-dai' },
+    { em: 'Cloud-native video streaming platform', rest: ' : microservices (FastAPI, React), 6-stage GitLab CI/CD, Red Hat OpenShift deployment, Loki/Grafana observability (M2, group of 3)', link: 'https://gitlab.com/Cutecookiebear/plateforme-streaming-video' },
+    { em: 'Data Integration, Data Matching', rest: ' : profiling, standardisation (Metaphone, Levenshtein), multi-strategy blocking, fuzzy scoring (M2, pair)', link: 'https://colab.research.google.com/drive/1EQbaRkqnynFx64qKQXWm2co9iiEKXd40?usp=sharing' },
+    { em: 'Carbon footprint awareness website', rest: ' based on lifestyle habits : HTML, CSS, JS and OpenData (group of 4)', link: 'https://github.com/theomr1/l2-projet-shs' },
+    { em: 'COVID data statistical analysis', rest: ' : R, RMarkdown, SQL/MariaDB, OpenData (data.gouv.fr, INSEE) — hospitalisations by department (L2, group of 5)', link: 'https://1drv.ms/u/c/38390163119b96ce/IQAaA_5Qvnd3TIjnJHgwgtH0AaTg7Ewx-EeXORlAvYx_sx0?e=gcs8by' },
   ];
   document.getElementById('projets-list').innerHTML = projets.map(p => {
-    const txt = (p.pre || '') + `<em>${p.em}</em>` + (p.rest || '');
+    const title = p.link ? `<a href="${p.link}" target="_blank"><em>${p.em}</em></a>` : `<em>${p.em}</em>`;
+    const txt = (p.pre || '') + title + (p.rest || '');
     return `<div class="projet-item"><div class="projet-bullet"></div><div class="projet-text">${txt}</div></div>`;
   }).join('');
 
