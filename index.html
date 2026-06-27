@@ -155,9 +155,6 @@ html,body{
     overflow:hidden;
     box-shadow:none;
   }
-  body.is-chrome .page{
-    zoom:0.85;
-  }
 }
 @media screen{
   body{display:flex;justify-content:center;padding:0.529cm;min-height:100vh;}
@@ -432,7 +429,8 @@ html,body{
 
   const ua = navigator.userAgent;
   if (/Chrome\//.test(ua) && !/OPR\//.test(ua) && !/Edg\//.test(ua)) {
-    document.body.classList.add('is-chrome');
+    window.addEventListener('beforeprint', () => { document.documentElement.style.zoom = '0.9'; });
+    window.addEventListener('afterprint',  () => { document.documentElement.style.zoom = ''; });
   }
 
   const params = new URLSearchParams(window.location.search);
