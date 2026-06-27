@@ -144,7 +144,7 @@ html,body{
 
 @media print{
   html,body{background:white !important;width:var(--page-w);}
-  .page{width:var(--page-w);height:var(--page-h);overflow:hidden;}
+  .page{width:var(--page-w);height:calc(var(--page-h) - 2mm);overflow:hidden;}
   @page{size:A4;margin:0;}
 }
 @media screen{
