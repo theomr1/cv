@@ -154,8 +154,9 @@ html,body{
     width:210mm;height:297mm;
     overflow:hidden;
     box-shadow:none;
-    transform:scale(0.97);
-    transform-origin:top left;
+  }
+  body.is-chrome .page{
+    zoom:0.94;
   }
 }
 @media screen{
@@ -428,6 +429,11 @@ html,body{
     const txt = (p.pre || '') + title + (p.rest || '');
     return `<div class="projet-item"><div class="projet-bullet"></div><div class="projet-text">${txt}</div></div>`;
   }).join('');
+
+  const ua = navigator.userAgent;
+  if (/Chrome\//.test(ua) && !/OPR\//.test(ua) && !/Edg\//.test(ua)) {
+    document.body.classList.add('is-chrome');
+  }
 
   const params = new URLSearchParams(window.location.search);
   const strip  = v => v ? v.replace(/^["']|["']$/g, '').trim() : v;
