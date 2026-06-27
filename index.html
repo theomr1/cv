@@ -143,9 +143,18 @@ html,body{
 #t-spe-tags{display:none;}
 
 @media print{
-  html,body{background:white !important;width:var(--page-w);}
-  .page{width:var(--page-w);height:calc(var(--page-h) - 2mm);overflow:hidden;}
   @page{size:A4;margin:0;}
+  html,body{
+    width:210mm;height:297mm;
+    margin:0;padding:0;
+    overflow:hidden;
+    background:white !important;
+  }
+  .page{
+    width:210mm;height:297mm;
+    overflow:hidden;
+    box-shadow:none;
+  }
 }
 @media screen{
   body{display:flex;justify-content:center;padding:0.529cm;min-height:100vh;}
